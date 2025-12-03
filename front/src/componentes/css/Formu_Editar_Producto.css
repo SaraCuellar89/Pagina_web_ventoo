@@ -1,0 +1,92 @@
+.contenedor_formu_editar_producto{
+    width: 100%;
+    height: fit-content;
+    min-width: 150px;
+    min-height: 200px;
+    background-color: var(--color_4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: var(--border_1);
+    filter: var(--sombra_2);
+}
+
+.contenedor_formu_editar_producto > p{
+    font-size: 25px;
+}
+
+.contenedor_formu_editar_producto > img{
+    width: 60%;
+    min-width: 200px;
+    object-fit: contain;
+    border-radius: 10px;
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(1){
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(1) > input,
+.contenedor_formu_editar_producto > div:nth-of-type(1) > select{
+    width: 100%;
+    background-color: var(--color_4);
+    font-size: 20px;
+    padding: 3px;
+    border-radius: 10px;
+    border: var(--border_1);
+    filter: var(--sombra_2);
+    outline: none;
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(2){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(2) > button:nth-of-type(1){
+    font-size: 25px;
+    color: black;
+    background-color: var(--color_7);
+    border: none;
+    filter: var(--sombra_2);
+    padding: 3px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(2) > button:nth-of-type(1):hover{
+    filter: none;
+    transform: var(--tamano_1);
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(2) > button:nth-of-type(2){
+    font-size: 25px;
+    color: var(--color_4);
+    background-color: var(--color_6);
+    border: none;
+    filter: var(--sombra_2);
+    padding: 3px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(2) > button:nth-of-type(2):hover{
+    filter: none;
+    transform: var(--tamano_1);
+}
+
+.contenedor_formu_editar_producto > div:nth-of-type(2) > p{
+    text-align: center;
+}

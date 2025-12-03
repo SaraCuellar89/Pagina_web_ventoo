@@ -1,0 +1,42 @@
+.contenedor_info_pedido_cliente{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.contenedor_info_pedido_cliente > a{
+    width: 100%;
+    font-size: 20px;
+    color: black;
+}
+
+.contenedor_info_pedido_cliente > div{
+    width: 100%;
+    background-color: var(--color_4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: var(--border_1);
+    filter: var(--sombra_2);
+}
+
+.contenedor_info_pedido_cliente > div > p{
+    width: 100%;
+    font-size: 25px;
+    color: black;
+}
+
+.contenedor_info_pedido_cliente > div > div{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}

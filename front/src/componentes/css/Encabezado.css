@@ -1,0 +1,101 @@
+.contenedor_encabezado{
+    width: 100%;
+    background-color: var(--color_1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 20px;
+    border-radius: 0px 0px 10px 10px;
+    border: var(--border_1);
+    filter: var(--sombra_1);
+}
+
+.contenedor_encabezado > img{
+    width: 30%;
+    min-width: 300px;
+    filter: var(--sombra_2);
+}
+
+.contenedor_encabezado > button{
+    color: white;
+    font-size: 25px;
+    background-color: var(--color_6);
+    padding: 5px 10px;
+    border-radius: 10px;
+    filter: var(--sombra_2);
+    border: none;
+    cursor: pointer;
+    transition: .3s;
+
+    display: none;
+}
+
+.contenedor_encabezado > button:hover{
+    filter: none;
+}
+
+.contenedor_encabezado > nav{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contenedor_encabezado > nav > a{
+    color: var(--color_4);
+    font-size: 25px;
+    transition: .3s;
+}
+
+.contenedor_encabezado > nav > a:hover{
+    filter: var(--sombra_2);
+}
+
+.contenedor_encabezado > nav > a:last-child{
+    background-color: var(--color_6);
+    padding: 5px 10px;
+    border-radius: 10px;
+    filter: var(--sombra_2);
+    transition: .3s;
+}
+
+.contenedor_encabezado > nav > a:last-child:hover{
+    filter: drop-shadow(0px 0px 0px black);
+}
+
+.nav_link_active{
+    filter: var(--sombra_2);
+    transform: var(--tamano_2);
+}
+
+
+
+/* Responsive */
+
+@media (max-width: 1235px) {
+    .contenedor_encabezado{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .contenedor_encabezado > button{
+        display: block;
+    }
+
+    .contenedor_encabezado > nav{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        border-top: var(--border_1);
+    }
+
+    .contenedor_encabezado > nav > a{
+        transform: scale(0.95);
+    }
+}

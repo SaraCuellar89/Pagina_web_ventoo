@@ -1,0 +1,31 @@
+.contenedor_pedidos_cliente{
+    width: 100%;
+    background-color: var(--color_4);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: var(--border_1);
+    filter: var(--sombra_2);
+
+    font-size: 20px;
+}
+
+.contenedor_pedidos_cliente > a{
+    color: black;
+    background-color: var(--color_7);
+    border: none;
+    filter: var(--sombra_2);
+    padding: 3px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_pedidos_cliente > a:hover{
+    filter: none;
+    transform: var(--tamano_1);
+}

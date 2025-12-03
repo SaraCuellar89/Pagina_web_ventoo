@@ -1,0 +1,29 @@
+.contenedor_carrusel{
+    min-width: 200px;
+    width: 90%;
+    height: 90vh;
+}
+
+.caja_carrusel{
+    min-width: 200px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;    
+    overflow: hidden;
+    border: var(--border_2);
+    filter: var(--sombra_1);
+}
+
+.caja_carrusel,
+.caja_carrusel .slick-list,
+.caja_carrusel .slick-track,
+.caja_carrusel .slick-slide {
+    height: 100%;
+}
+
+.img_carrusel{
+    min-width: 200px;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}

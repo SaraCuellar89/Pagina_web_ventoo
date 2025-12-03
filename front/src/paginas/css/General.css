@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Carter+One&family=Caveat:wght@400..700&family=Delius&family=Gaegu&family=Handlee&family=Jockey+One&family=Jolly+Lodger&family=Oswald:wght@200..700&family=Poppins:wght@300;400&family=Protest+Revolution&family=Roboto:ital,wght@0,100..900;1,100..900&family=Rock+Salt&family=Shadows+Into+Light&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Carter One", system-ui;
+}
+
+:root{
+    --color_1: #F26A4B;
+    --color_2: #F2B279;
+    --color_3: #153B40;
+    --color_4: #FFEDD0;
+    --color_6: #BF3326;
+    --color_7: #82BFC7;
+
+    --border_1: solid 3px var(--color_3);
+    --border_2: solid 5px var(--color_3);
+
+    --sombra_1: drop-shadow(0px 10px 5px rgb(0, 0, 0, 0.6));
+    --sombra_2: drop-shadow(0px 5px 3px rgb(0, 0, 0, 0.6));
+
+    --tamano_1: scale(0.97);
+    --tamano_2: scale(1.09);
+}
+
+body{
+    background-color: var(--color_2);
+}

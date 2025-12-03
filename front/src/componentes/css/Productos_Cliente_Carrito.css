@@ -1,0 +1,92 @@
+.contenedor_productos_cliente_carrito{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.contenedor_productos_cliente_carrito > p{
+    width: 100%;
+    font-size: 25px;
+}
+
+.caja_productos_productos_cliente_carrito{
+    width: 100%;
+    background-color: var(--color_4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: var(--border_1);
+    filter: var(--sombra_2);
+}
+
+.caja_productos_productos_cliente_carrito > div{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.caja_productos_productos_cliente_carrito > div > div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.caja_productos_productos_cliente_carrito > div > div > button{
+    font-size: 20px;
+    color: var(--color_4);
+    background-color: var(--color_6);
+    border: none;
+    filter: var(--sombra_2);
+    padding: 3px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.caja_productos_productos_cliente_carrito > div > div > button:hover{
+    filter: none;
+    transform: var(--tamano_1);
+}
+
+.caja_productos_productos_cliente_carrito > div:nth-of-type(2){
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: start;
+}
+
+.contenedor_productos_cliente_carrito > button{
+    font-size: 25px;
+    color: black;
+    background-color: var(--color_7);
+    border: none;
+    filter: var(--sombra_2);
+    padding: 3px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.contenedor_productos_cliente_carrito > button:hover{
+    filter: none;
+    transform: var(--tamano_1);
+}
+
+.contenedor_productos_cliente_carrito > button.boton_desactivado {
+    background-color: gray;
+    color: white;
+    cursor: not-allowed;
+    filter: none;
+    transform: none;
+}

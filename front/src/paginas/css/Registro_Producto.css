@@ -1,0 +1,26 @@
+.contenedor_registro_producto{
+    width: 100%;
+    min-height: 100vh;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor_registro_producto > div:nth-child(2){
+    width: 90%;
+    min-width: 300px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    margin: 50px 0px 0px 0px;
+}
+
+.contenedor_registro_producto > div:nth-child(2) > a{
+    width: 100%;
+    font-size: 20px;
+    color: black;
+}
