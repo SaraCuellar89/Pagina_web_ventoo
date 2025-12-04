@@ -1,70 +1,64 @@
 import React, { useState } from "react";
-import '../componentes/css/Resenas.css'
-import { useNavigate } from "react-router-dom";
+import '../componentes/css/Resenas.css';
 
-const Resenas = () => {
+const Resenas = ({ id_resena, nombre_usuario, estrellas, comentario, Editar_Resena, Eliminar_Resena, id_usuario_resena,id_usuario_logueado }) => {
 
-    const navigate = useNavigate()
+    const [editando, setEditando] = useState(false);
+    const [nuevoComentario, setNuevoComentario] = useState(comentario);
+    const [nuevasEstrellas, setNuevasEstrellas] = useState(estrellas);
 
-    const [input_editar, setInput_editar] = useState(false)
+    const guardar = () => {
+        Editar_Resena(id_resena, nuevoComentario, nuevasEstrellas);
+        setEditando(false);
+    };
 
-    const Editar_Resena = () => {
-        if(input_editar === true){
-            setInput_editar(false)
-        }
-        else{
-            setInput_editar(true)
-        }
-    }
-
-    const Cancelar_Edicion = () => {
-        let confirmar = confirm('¿Quiere dejar de editar?')
-        if(confirmar) navigate(0)
-    }
-
-    return(
+    return (
         <div className="contenedor_resenas">
+
             <div>
-                <p>User_4343</p>
-                <p>★★★★★</p>
+                <p>{nombre_usuario}</p>
+                <p>{"★".repeat(estrellas) + "☆".repeat(5 - estrellas)}</p>
             </div>
 
-            <>
-                {input_editar === false ? 
-                (
-                    <p>Muy buen producto</p>
-                ) : 
-                (
-                    <div className="caja_editar_resena">
-                        <input type="text"/>
-                        <select name="" id="">
-                            <option value="1">1 Estrella</option>
-                            <option value="2">2 Estrella</option>
-                            <option value="3">3 Estrella</option>
-                            <option value="4">4 Estrella</option>
-                            <option value="5">5 Estrella</option>
-                        </select>
-                    </div>
-                )}
-            </>
+            {editando ? (
+                <div className="caja_editar_resena">
+                    <input
+                        type="text"
+                        value={nuevoComentario}
+                        onChange={(e) => setNuevoComentario(e.target.value)}
+                    />
 
-            <>
-            {input_editar === false ? 
-            (
-                <div>
-                    <button onClick={Editar_Resena}>Editar</button>
-                    <button>Eliminar</button>
+                    <select
+                        value={nuevasEstrellas}
+                        onChange={(e) => setNuevasEstrellas(Number(e.target.value))}
+                    >
+                        <option value="1">1 Estrella</option>
+                        <option value="2">2 Estrellas</option>
+                        <option value="3">3 Estrellas</option>
+                        <option value="4">4 Estrellas</option>
+                        <option value="5">5 Estrellas</option>
+                    </select>
                 </div>
-            ) : 
-            (
-                <div>
-                    <button>Editar</button>
-                    <button onClick={Cancelar_Edicion}>Cancelar</button>
-                </div>
+            ) : (
+                <p>{comentario}</p>
             )}
-            </>
-        </div>
-    )
-}
 
-export default Resenas
+            { id_usuario_logueado === id_usuario_resena ? (
+                editando ? (
+                    <div>
+                        <button onClick={guardar}>Guardar</button>
+                        <button onClick={() => setEditando(false)}>Cancelar</button>
+                    </div>
+                ) : (
+                    <div>
+                        <button onClick={() => setEditando(true)}>Editar</button>
+                        <button onClick={() => Eliminar_Resena(id_resena)}>Eliminar</button>
+                    </div>
+                )
+            ) : <div></div> }
+
+        </div>
+    );
+};
+
+export default Resenas;

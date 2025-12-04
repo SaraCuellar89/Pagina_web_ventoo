@@ -1,46 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-const Formu_Registro = () => {
-
-    const navigate = useNavigate()
-
-    const [form, setForm] = useState({
-        nombre: "",
-        telefono: "",
-        email: "",
-        tipo: "",
-        password: ""
-    });
-
-    // MANEJAR CAMBIOS
-    const handleChange = (e) => {
-        setForm({
-            ...form,
-            [e.target.name]: e.target.value
-        });
-    };
-
-    // ENVIAR FORMULARIO
-    const Registrarse = async (e) => {
-        e.preventDefault()
-
-        const res = await fetch("http://localhost:8001/routes/register.php", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(form)
-        });
-
-        const data = await res.json();
-        if(!data.message){
-            alert('No se pudo completar el registro')
-            navigate(0)
-        }
-
-        alert('¡Cuenta Registrada Correctamente!')
-        navigate('/Inicio_Sesion')
-    };
-
+const Formu_Registro = ({Registrarse, form, handleChange}) => {
     return(
         <form onSubmit={Registrarse} className="contenedor_formu_inicio_sesion">
 

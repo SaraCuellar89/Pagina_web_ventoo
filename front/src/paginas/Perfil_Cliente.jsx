@@ -6,9 +6,11 @@ import Encabezado from "../componentes/Encabezado";
 import Footer from "../componentes/Footer";
 import Pedidos_Cliente from "../componentes/Pedidos_Cliente";
 import Encabezado_Usuarios from "../componentes/Encabezado_Usuarios";
+import { useState } from "react";
 
 const Perfil_Cliente = () => {
 
+    // ============ Animacion ============
     useEffect(() => {
         AOS.init({
         duration: 800,       // duración del fade
@@ -16,6 +18,36 @@ const Perfil_Cliente = () => {
         once: false,         // si quieres que se repita al subir/bajar
         });
     }, []);
+
+
+
+    const [pedidos, setPedidos] = useState([])
+
+    // ============ Obtener todos los pedidos del cliente ============
+    useEffect(() => {
+        const Obtener_Pedidos = async () => {
+
+            const token = localStorage.getItem("token");
+
+            try{
+                const res = await fetch('http://localhost:3001/pedidos_cliente', {
+                    headers: {
+                        "Authorization": "Bearer " + token
+                    }
+                })
+
+                const datos = await res.json()
+                setPedidos(datos.pedidos)
+            }
+            catch(error){
+                console.log('Error: ' + error)
+            }
+        }
+
+        Obtener_Pedidos()
+    }, [])
+
+
 
     return(
         <div className="contenedor_perfil_cliente">
@@ -27,9 +59,23 @@ const Perfil_Cliente = () => {
                 <div className="caja_pedidos_cliente_perfil_cliente">
                     <p>Pedidos</p>
                     <div>
-                        <Pedidos_Cliente/>
-                        <Pedidos_Cliente/>
-                        <Pedidos_Cliente/>
+                        {pedidos.length === 0 ?
+                        (
+                            <p>No hay pedidos</p>
+                        ) : 
+                        (
+                            <>
+                                {pedidos.map((p) => (
+                                    <Pedidos_Cliente
+                                        key={p.Id_pedido}
+                                        estado={p.Estado_pedido}
+                                        fecha={p.Fecha_pedido.slice(0, 10)}
+                                        total={p.Total}
+                                        id_pedido={p.Id_pedido}
+                                    />
+                                ))}
+                            </>
+                        )}
                     </div>
                 </div>
             </div>

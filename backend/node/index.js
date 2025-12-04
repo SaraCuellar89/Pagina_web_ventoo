@@ -416,19 +416,52 @@ app.delete("/carrito/eliminar/:idProducto", verificarToken, (req, res) => {
 // ===================== CREAR PEDIDO =====================
 app.post("/crear_pedido", verificarToken, (req, res) => {
     const idUsuario = req.usuario.Id_usuario;
-    const { direccion, metodoPago, total } = req.body;
+    const { direccion, metodoPago, total, productos } = req.body;
+
+    if (!productos || productos.length === 0) {
+        return res.json({ success: false, message: "El pedido no tiene productos." });
+    }
 
     const fecha = new Date().toISOString().slice(0, 10);
-    const idPedido = Date.now();
 
-    const sql = `
-        INSERT INTO Pedido (Id_pedido, Direccion_envio, Fecha_pedido, Metodo_pago, Estado_pedido, Total, Id_usuario)
-        VALUES (?, ?, ?, ?, 'Pendiente', ?, ?)
+    const sqlPedido = `
+        INSERT INTO Pedido (Direccion_envio, Fecha_pedido, Metodo_pago, Estado_pedido, Total, Id_usuario)
+        VALUES (?, ?, ?, 'Pendiente', ?, ?)
     `;
 
-    db.query(sql, [idPedido, direccion, fecha, metodoPago, total, idUsuario], (err) => {
-        if (err) return res.json({ success: false });
-        res.json({ success: true, idPedido });
+    db.query(sqlPedido, [direccion, fecha, metodoPago, total, idUsuario], (err, result) => {
+        if (err) {
+            console.log("ERROR SQL (Pedido):", err);
+            return res.json({ success: false, error: err });
+        }
+
+        const idPedido = result.insertId;
+
+        // ========= Insertar detalles del pedido ==========
+        const sqlDetalle = `
+            INSERT INTO Pedido_Detalle (Id_pedido, Id_producto, Cantidad, Precio)
+            VALUES ?
+        `;
+
+        const valores = productos.map(p => [
+            idPedido,
+            p.Id_producto,
+            p.Cantidad,
+            p.Precio
+        ]);
+
+        db.query(sqlDetalle, [valores], (err2) => {
+            if (err2) {
+                console.log("ERROR SQL (Detalle):", err2);
+                return res.json({ success: false, error: err2 });
+            }
+
+            res.json({
+                success: true,
+                message: "Pedido creado con éxito.",
+                idPedido
+            });
+        });
     });
 });
 

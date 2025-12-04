@@ -17,7 +17,8 @@
     width: 100%;
     background-color: var(--color_4);
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
     gap: 30px;
@@ -35,7 +36,7 @@
 
 .contenedor_info_pedido_cliente > div > div{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     gap: 20px;

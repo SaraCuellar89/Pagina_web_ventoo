@@ -10,8 +10,7 @@ import { useState } from "react";
 
 const Compra = () => {
 
-    const [productos, setProductos] = useState([])
-
+    // ============ Animacion ============
     useEffect(() => {
         AOS.init({
         duration: 800,       // duración del fade
@@ -21,7 +20,112 @@ const Compra = () => {
     }, []);
 
 
-    //Obtener productos
+
+    const [productos, setProductos] = useState([])
+
+
+
+    // ============ Estados necesarios para los filtros ============
+    const [categorias, setCategorias] = useState([])
+    const [id_categoria, setId_categoria] = useState('')
+    const [orden, setOrden] = useState('')
+    const [nombre, setNombre] = useState('')
+
+
+
+    // ============ Obtener Todas las categorias para el select ============
+    useEffect(() => {
+        const Obtener_Categorias = async () => {
+            try{
+                const res = await fetch('http://localhost:3001/categorias')
+                const datos = await res.json()
+
+                setCategorias(datos.categorias)
+            }
+            catch(error){
+                console.log('Error: ' + error)
+            }
+        }
+
+        Obtener_Categorias()
+    }, [])
+
+
+
+    // ============ Buscar producto por el nombre ============
+    const Buscar_Nombre = async (e) => {
+        e.preventDefault()
+
+        if(nombre === ''){
+            return
+        }
+
+        try{
+            const res = await fetch('http://localhost:3001/buscar_nombre', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({nombre})
+            })
+
+            const datos = await res.json()
+
+            setProductos(datos.productos)
+        }
+        catch(error){
+            console.log('Error: ' + error)
+        }
+    }
+
+
+
+    // ============ Filtrar productos por su categoria ============
+    const Filtrar_Categoria = async () => {
+        try{
+            const res = await fetch('http://localhost:3001/filtrar_categoria', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({id_categoria})
+            })
+
+            const datos = await res.json()
+
+            setProductos(datos.productos)
+            setId_categoria('')
+        }
+        catch(error){
+            console.log('Error: ' + error)
+        }
+    }
+
+
+    // ============ Filtrar productos por su precio ============
+    const Filtrar_Precio = async () => {
+        try{
+            const res = await fetch('http://localhost:3001/filtrar_precio', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({orden})
+            })
+
+            const datos = await res.json()
+
+            setProductos(datos.productos)
+            setOrden('')
+        }
+        catch(error){
+            console.log('Error: ' + error)
+        }
+    }
+
+
+
+    // ============ Obtener todos los productos apensas cargue la pagina ============
     useEffect(() => {
         const Obtener_Productos = async () => {
             try{
@@ -39,6 +143,9 @@ const Compra = () => {
         Obtener_Productos()
     }, [])
 
+
+
+
     return(
         <div className="contenedor_compra">
             <Encabezado/>
@@ -46,7 +153,16 @@ const Compra = () => {
             <div data-aos="fade-up" data-aos-duration="1000">
                 <div>
                     <Filtros_Busqueda
-                        setProductos={setProductos}
+                        Buscar_Nombre={Buscar_Nombre}
+                        nombre={nombre}
+                        setNombre={setNombre}
+                        Filtrar_Categoria={Filtrar_Categoria}
+                        Filtrar_Precio={Filtrar_Precio}
+                        orden={orden}
+                        setOrden={setOrden}
+                        id_categoria={id_categoria}
+                        setId_categoria={setId_categoria}
+                        categorias={categorias}
                     />
                 </div>
 
@@ -62,6 +178,7 @@ const Compra = () => {
                             <>
                                 {productos.map((p) => (
                                     <Tarjeta_Producto
+                                        key={p.Id_producto}
                                         id_producto={p.Id_producto}
                                         img_prodcuto={p.Imagen}
                                         titulo_producto={p.Nombre}

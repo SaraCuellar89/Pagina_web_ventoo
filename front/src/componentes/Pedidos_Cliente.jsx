@@ -2,13 +2,13 @@ import React from "react";
 import '../componentes/css/Pedidos_Cliente.css'
 import { Link } from "react-router-dom";
 
-const Pedidos_Cliente = () => {
+const Pedidos_Cliente = ({estado, fecha, total, id_pedido}) => {
     return(
         <div className="contenedor_pedidos_cliente">
-            <p>Codigo: FEE65</p>
-            <p>16/11/2025</p>
-            <p>Productos: 3</p>
-            <Link to={'/Informacion_Pedido'}>Ver</Link>
+            <p>{estado}</p>
+            <p>{fecha}</p>
+            <p>${total}</p>
+            <Link to={`/Informacion_Pedido/${id_pedido}`}>Ver</Link>
         </div>
     )
 }

@@ -39,11 +39,12 @@
 }
 
 .contenedor_modal_pago > div > div > p:nth-of-type(1),
-.contenedor_modal_pago > div > form > p:nth-of-type(1){
+.contenedor_modal_pago > div > form > p{
     font-size: 25px;
 }
 
-.contenedor_modal_pago > div > form > select{
+.contenedor_modal_pago > div > form > select,
+.contenedor_modal_pago > div > form > input{
     width: 100%;
     background-color: var(--color_4);
     font-size: 20px;

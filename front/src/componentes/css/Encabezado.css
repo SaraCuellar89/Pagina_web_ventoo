@@ -11,7 +11,7 @@
 }
 
 .contenedor_encabezado > img{
-    width: 30%;
+    width: 25%;
     min-width: 300px;
     filter: var(--sombra_2);
 }
