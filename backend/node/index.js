@@ -19,21 +19,7 @@ app.use(cors({
     credentials: false
 }));
 
-app.use("/uploads", express.static("uploads"));
 app.use(express.json());
-
-
-
-
-
-// ===================== MULTER =====================
-const storage = multer.diskStorage({
-    destination: "./uploads",
-    filename: (req, file, cb) => {
-        cb(null, Date.now() + path.extname(file.originalname));
-    }
-});
-const upload = multer({ storage });
 
 
 
@@ -119,34 +105,6 @@ app.post("/login", (req, res) => {
 app.get("/usuario_logueado", verificarToken, (req, res) => {
     res.json({ success: true, usuario: req.usuario });
 });
-
-
-
-// ===================== SUBIR IMAGEN PERFIL =====================
-app.post("/subir_imagen", verificarToken, upload.single("imagen"), (req, res) => {
-    const imagen = req.file.filename;
-
-    const query = "UPDATE Usuario SET Imagen = ? WHERE Id_usuario = ?";
-    db.query(query, [imagen, req.usuario.Id_usuario], err => {
-        if (err) return res.status(500).json({ success: false });
-
-        res.json({ success: true, imagen });
-    });
-});
-
-
-
-
-// ===================== NORMALIZAR IMAGEN =====================
-const normalizarImagen = (img) => {
-    if (!img) return "";
-    img = img.trim();
-
-    if (img.startsWith("http")) return img;
-    if (!img.includes("base64") && !img.startsWith("data:image"))
-        return `http://localhost:3001/uploads/${img}`;
-    return img;
-};
 
 
 
