@@ -7,6 +7,7 @@ import Footer from "../componentes/Footer";
 import Formu_Inicio_Sesion from "../componentes/Formu_Inicio_Sesion";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Inicio_Sesion = () => {
 
@@ -84,6 +85,8 @@ const Inicio_Sesion = () => {
                     handleChange={handleChange}
                 />
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

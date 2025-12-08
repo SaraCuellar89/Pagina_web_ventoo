@@ -14,6 +14,7 @@ import Tarjeta_Producto from "../componentes/Tarjeta_Producto";
 import { Link, useNavigate } from "react-router-dom";
 import Footer from "../componentes/Footer";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Inicio = () => {
 
@@ -202,6 +203,8 @@ const Inicio = () => {
                     <Link to={'/Compra'}>Encuentra mas {'>>'}</Link>
                 </div>
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

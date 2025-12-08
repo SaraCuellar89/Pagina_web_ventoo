@@ -7,6 +7,7 @@ import Footer from "../componentes/Footer";
 import Pedidos_Cliente from "../componentes/Pedidos_Cliente";
 import Encabezado_Usuarios from "../componentes/Encabezado_Usuarios";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Perfil_Cliente = () => {
 
@@ -79,6 +80,8 @@ const Perfil_Cliente = () => {
                     </div>
                 </div>
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

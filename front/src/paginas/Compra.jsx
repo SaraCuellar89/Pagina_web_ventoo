@@ -7,6 +7,7 @@ import Footer from "../componentes/Footer";
 import Filtros_Busqueda from "../componentes/Filtros_Busqueda";
 import Tarjeta_Producto from "../componentes/Tarjeta_Producto";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Compra = () => {
 
@@ -193,6 +194,8 @@ const Compra = () => {
                 </div>
 
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

@@ -6,6 +6,7 @@ import Footer from "../componentes/Footer";
 import Info_Pedido_Cliente from "../componentes/Info_Pedido_Cliente";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Info_Pedido = () => {
 
@@ -61,6 +62,8 @@ const Info_Pedido = () => {
                     productos={productos}
                 />
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

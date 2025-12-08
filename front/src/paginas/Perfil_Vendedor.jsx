@@ -7,6 +7,7 @@ import Encabezado_Usuarios from "../componentes/Encabezado_Usuarios";
 import Productos_Vendedor from "../componentes/Productos_Vendedor";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Perfil_Vendedor = () => {
 
@@ -97,6 +98,8 @@ const Perfil_Vendedor = () => {
                     Eliminar_Producto={Eliminar_Producto}
                 />
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

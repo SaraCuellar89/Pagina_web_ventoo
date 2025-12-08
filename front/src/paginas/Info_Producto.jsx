@@ -10,6 +10,7 @@ import Mas_Del_Vendedor from "../componentes/Mas_Del_Vendedor";
 import Formu_Resenas from "../componentes/Formu_Resenas";
 import Resenas from "../componentes/Resenas";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Info_Producto = () => {
 
@@ -360,6 +361,8 @@ const Info_Producto = () => {
                     </div>
                 </div>
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

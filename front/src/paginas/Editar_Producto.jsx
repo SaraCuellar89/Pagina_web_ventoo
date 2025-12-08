@@ -6,6 +6,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Formu_Editar_Producto from "../componentes/Formu_Editar_Producto";
 import Footer from "../componentes/Footer";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Editar_Producto = () => {
 
@@ -161,6 +162,8 @@ const Editar_Producto = () => {
                     />
                 </div>
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

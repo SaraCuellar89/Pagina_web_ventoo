@@ -7,6 +7,7 @@ import Footer from "../componentes/Footer";
 import Formu_Registrar_Producto from "../componentes/Formu_Registrar_Producto";
 import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Registro_Producto = () => {
 
@@ -115,6 +116,8 @@ const Registro_Producto = () => {
                     />
                 </div>
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

@@ -6,6 +6,7 @@ import Footer from "../componentes/Footer";
 import Formu_Registro from "../componentes/Formu_Registro";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Registro = () => {
 
@@ -72,6 +73,8 @@ const Registro = () => {
                     handleChange={handleChange}
                 />
             </div>
+
+            <Boton_Chatbot/>
 
             <Footer/>
         </div>

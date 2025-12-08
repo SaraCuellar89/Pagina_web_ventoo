@@ -6,6 +6,7 @@ import Footer from "../componentes/Footer";
 import Productos_Cliente_Carrito from "../componentes/Productos_Cliente_Carrito";
 import Modal_Pago from "../componentes/Modal_Pago";
 import { useNavigate } from "react-router-dom";
+import Boton_Chatbot from "../componentes/Boton_Chatbot";
 
 const Carrito = () => {
 
@@ -170,6 +171,8 @@ const Carrito = () => {
                     setDireccion={setDireccion}
                 />
             )}
+
+            <Boton_Chatbot/>
         </div>
     )
 }
