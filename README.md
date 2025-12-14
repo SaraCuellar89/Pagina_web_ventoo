@@ -14,38 +14,38 @@
 - **PHP**  
 - **Python**  
 
-- ## Ejecutarlo de forma local
-  - Descargar el Proyecto.  
-  ```
-  git clone https://github.com/SaraCuellar89/Pagina_web_ventoo.git
-  ```
-  - **Ejecutar el Frontend**  
-    - Abrir una terminal en la carpeta front.  
-    ```javascript
-    //Intalar dependecias:
-    npm install
-    ```
-    ```javascript
-    //Ejecutar:
-    npm run dev
-    ```
-  - **Ejecutar el Backend**  
-    - Abrir una terminal dentro de la carpeta backend/auth-php. 
-    ```javascript
-    //Correr php:
-    php -S 0.0.0.0:8001
-    ```
-    - Abrir una terminal dentro de la carpeta backend. 
-    ```javascript
-    //Instalar dependecias:
-    npm install
-    ```
-    - Abrir una terminal dentro de la carpeta backend/node. 
-    ```javascript
-    //Correr node:
-    npm run dev
-    ```
-  - En el nevagador ir a http://localhost:5173
+## Ejecutarlo de forma local
+ - Descargar el Proyecto.  
+ ```
+ git clone https://github.com/SaraCuellar89/Pagina_web_ventoo.git
+ ```
+ - **Ejecutar el Frontend**  
+   - Abrir una terminal en la carpeta front.  
+   ```javascript
+   //Intalar dependecias:
+   npm install
+   ```
+   ```javascript
+   //Ejecutar:
+   npm run dev
+   ```
+ - **Ejecutar el Backend**  
+   - Abrir una terminal dentro de la carpeta backend/auth-php. 
+   ```javascript
+   //Correr php:
+   php -S 0.0.0.0:8001
+   ```
+   - Abrir una terminal dentro de la carpeta backend. 
+   ```javascript
+   //Instalar dependecias:
+   npm install
+   ```
+   - Abrir una terminal dentro de la carpeta backend/node. 
+   ```javascript
+   //Correr node:
+   npm run dev
+   ```
+ - En el nevagador ir a http://localhost:5173
 
 ---
 
