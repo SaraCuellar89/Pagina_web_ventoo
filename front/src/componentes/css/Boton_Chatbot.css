@@ -6,6 +6,7 @@
     height: 100vh;
     z-index: 999;
     pointer-events: none;
+    cursor: pointer;
 }
 
 .caja_boton_chatbot{

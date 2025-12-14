@@ -9,6 +9,33 @@ import Boton_Chatbot from "./Boton_Chatbot";
 const Chat_Bot = () => {
 
     const [cerrar_chat, setCerrar_Chat] = useState(false)
+    const [mensaje, setMensaje] = useState("");
+    const [mensajes, setMensajes] = useState([]);
+    const [escribiendo, setEscribiendo] = useState(false);
+
+const enviarMensaje = async () => {
+    if (!mensaje) return;
+
+    setMensajes(prev => [...prev, { autor: "user", texto: mensaje }]);
+    setMensaje(""); 
+    
+    setEscribiendo(true);
+
+    const res = await fetch("https://chat-2v4b.onrender.com/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            mensaje: mensaje
+        })
+    });
+
+    const data = await res.json();
+    
+    setEscribiendo(false);
+
+    setMensajes(prev => [...prev, { autor: "bot", texto: data.respuesta }]);
+};
+
 
     return(
         <>
@@ -22,24 +49,40 @@ const Chat_Bot = () => {
                         </div>
 
                         <div className="caja_chat_bot">
-                            <div className="chat_usuario">
-                                <div>
-                                    <p>Hola</p>
+                            {mensajes.map((msg, i) => (
+                                msg.autor === "user" ? (
+                                    <div className="chat_usuario" key={i}>
+                                        <div><p>{msg.texto}</p></div>
+                                        <img src={user} alt="" />
+                                    </div>
+                                ) : (
+                                    <div className="chat_robot" key={i}>
+                                        <img src={robot} alt="" />
+                                        <div><p>{msg.texto}</p></div>
+                                    </div>
+                                )
+                            ))}
+                            {escribiendo && (
+                                <div className="chat_robot typing">
+                                    <img src={robot} alt="" />
+                                    <div><p>...</p></div>
                                 </div>
-                                <img src={user} alt="" />
-                            </div>
-
-                            <div className="chat_robot">
-                                <img src={robot} alt="" />
-                                <div>
-                                    <p>Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente igual al original. Fue popularizado en los 60s con la creación de las hojas "Letraset", las cuales contenian pasajes de Lorem Ipsum, y más recientemente con software de autoedición, como por ejemplo Aldus PageMaker, el cual incluye versiones de Lorem Ipsum.</p>
-                                </div>
-                            </div>
+                            )}
                         </div>
 
-                        <form action="">
-                            <input type="text" />
-                            <img src={flecha} alt="" />
+                        <form 
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                enviarMensaje();
+                            }}
+                        >
+                            <input 
+                                type="text" 
+                                value={mensaje}
+                                onChange={(e) => setMensaje(e.target.value)}
+                                placeholder="Escribe tu mensaje..."
+                            />
+                            <img src={flecha} alt=""  onClick={enviarMensaje}/>
                         </form>
                     </div>
                 </div>

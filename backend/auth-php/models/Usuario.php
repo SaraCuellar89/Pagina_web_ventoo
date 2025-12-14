@@ -3,7 +3,7 @@
 class Usuario {
 
     private $conn;
-    private $table = "Usuario";
+    private $table = "usuario";
 
     public $Nombre;
     public $Email;

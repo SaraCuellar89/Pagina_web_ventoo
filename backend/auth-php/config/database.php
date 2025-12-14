@@ -1,10 +1,10 @@
 <?php
 
 class Database {
-    private $host = "localhost";
-    private $db_name = "ventoo";
-    private $username = "root";
-    private $password = "";
+    private $host = "mysql-base1cine.alwaysdata.net";
+    private $db_name = "base1cine_ventoo";
+    private $username = "base1cine_admin";
+    private $password = "contrasena_1234";
     public $conn;
 
     public function connect() {
