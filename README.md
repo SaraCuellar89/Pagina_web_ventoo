@@ -1,6 +1,8 @@
 # Ventoo - E-commerce
 
  - Aplicación web que simula un e-commerce, desarrollada como proyecto full stack para practicar la integración entre frontend, backend y base de datos.
+
+ - <a href="https://front-ventoo-pagina.vercel.app/" target="_blank"><strong>¡Explora la página en línea!</strong></a> 
 ---
 
 ## Tecnologías Utilizadas
