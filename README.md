@@ -14,7 +14,7 @@
 - **PHP**  
 - **Python**  
 
-- ## Ejecutarlo
+- ## Ejecutarlo de forma local
   - Descargar el Proyecto.  
   ```
   git clone https://github.com/SaraCuellar89/Pagina_web_ventoo.git
