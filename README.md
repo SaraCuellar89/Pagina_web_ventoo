@@ -52,6 +52,10 @@
 <div align="center">
   Este proyecto fue desarrollado por 
   <a href="https://github.com/ricardo694" target="_blank"><strong>ricardo694</strong></a> 
-  y 
-  <a href="https://github.com/SaraCuellar89" target="_blank"><strong>SaraCuellar89</strong></a>.
+  - 
+  <a href="https://github.com/SaraCuellar89" target="_blank"><strong>SaraCuellar89</strong></a>
+ -
+  <a href="https://github.com/alejo0519" target="_blank"><strong>alejo0519</strong></a>
+ -
+  <a href="https://github.com/johan379" target="_blank"><strong>johan379</strong></a>
 </div>
